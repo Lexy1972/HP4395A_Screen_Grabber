@@ -1,6 +1,6 @@
 # HP4395A Screen Grabber
 
-Grabs screenshot from a HP4395A Network/Spectrum/Impedance Analyzer through  GPIB interface and the NI-488 drivers.
+Grabs screenshot from a HP4395A (probally a 4396A will work also) Network/Spectrum/Impedance Analyzer through  GPIB interface and the NI-488 drivers.
 
 ![Screenshot](Images/Screenshot1.JPEG)
 
