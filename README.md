@@ -30,5 +30,16 @@ Note that these color categories of the items are dictated by the instrument and
 The code is loosly based on this codeproject project: [Instrument Snapshot: How to Acquire and Render Screen-shots from Older Test Equipment](https://www.codeproject.com/Articles/872469/Instrument-Snapshot-How-to-Acquire-and-Render-Scre) 
 I first tried this project, but I clouldn't get it to work. So i decided to make my own tool.
 
-The screen grabbing works by sending the commands to save a Graphic to the memory disk and than read it back into the programm and show it.
+The screen grabbing works by utilizing the Save Graphics option of the instrument it self. It first saves the Graphics to the memory Storage Device, then opens it for read en reads the data back.
+
+These GPIB commands are used:
+
+PURG "TEMP1234_T"; *WAI  // delete the old tempfile
+PRIC;PRICVARI            // Set the color mode
+STODMEMO                 // Set the storage device to memory
+SAVDTIF "TEMP1234"; *WAI"  //save Graphics to temp file
+ROPEN "TEMP1234_T"; *WAI" // open the temp file for read
+READ?                     // Read the data. Called sequential until no more data avalible
+
+
 
