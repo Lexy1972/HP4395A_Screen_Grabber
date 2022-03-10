@@ -14,7 +14,7 @@ After the drivers are installed, start the main executable HP4395A_Screen_Grabbe
 
 ## What can it do?
 
-Well, it makes a screenshot of the connected instrument by simply pressing the "Capture" button. The image is downloaded from the instrument via GPIB bus and than shown in the UI (See screenshot above). After download, the image is put on the Clipboard, so you can past it easily into your documentation. There is also an option to save the image as TIG,JPG,BMP or PNG.
+Well, it makes a screenshot of the connected instrument by simply pressing the "Capture" button. The image is downloaded from the instrument via GPIB bus and than shown in the UI (See screenshot above). After download, the image is put on the Clipboard, so you can past it easily into your documentation. There is also an option to save the image as TIF,JPG,BMP or PNG.
 
 With the combobox above the Capture button you can set the color mode of the image:
 
