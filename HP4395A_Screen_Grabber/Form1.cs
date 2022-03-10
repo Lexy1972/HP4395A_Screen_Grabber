@@ -450,7 +450,7 @@ namespace HP4395A_Screen_Grabber
         // ReadColorPalette
         //   Reads the available colors from the Image and puts them in a DataGridView 
         //===========================================================================================================================================
-        private void ReadColorPalette()
+        private void ReadColorPalette(bool NoNames = false)
         {
             paletteReadBusy = true;
             //Log("palette:");
@@ -470,7 +470,7 @@ namespace HP4395A_Screen_Grabber
                 int index = dgvColors.Rows.Add();
 
                 dgvColors.Rows[index].Cells[0].Value = i.ToString();
-                dgvColors.Rows[index].Cells[1].Value = palatteName[i];
+                dgvColors.Rows[index].Cells[1].Value = NoNames ? "" : palatteName[i];
                 dgvColors.Rows[index].Cells[2].Value = color.Name;
 
                 dgvColors.Rows[index].Cells[2].Style.BackColor = color;
@@ -663,6 +663,35 @@ namespace HP4395A_Screen_Grabber
             catch (Exception ex)
             {
                 Log("Clipboard copy failed: " + ex.Message);
+            }
+        }
+
+        private void btnPaste_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Bitmap image = (Bitmap)Clipboard.GetImage();
+
+                if (image != null)
+                {
+                    Rectangle cloneRect = new Rectangle(0, 0, image.Width, image.Height);
+                    Bitmap clone = image.Clone(cloneRect, PixelFormat.Format4bppIndexed);
+
+                    pictureBox1.Image = clone;
+
+                    ReadColorPalette(true);
+                    Log("Image is pasted from clipboard!");
+                    Log("NOTE: Color index info is not pressend in pasted images!");
+                }
+                else
+                {
+                    Log("No Image data on clipboard to paste!");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Clipboard paste failed: " + ex.Message);
             }
         }
     }
