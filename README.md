@@ -24,3 +24,11 @@ With the combobox above the Capture button you can set the color mode of the ima
 
 But you can also change the color's of some items with the Color table. Just click on the color cell of the item you want to change and a color chooser will popup.
 Note that these color categories of the items are dictated by the instrument and I just have given them a name. This is not something that can be changes. 
+
+## How does it work?
+
+The code is loosly based on this codeproject project: [Instrument Snapshot: How to Acquire and Render Screen-shots from Older Test Equipment](https://www.codeproject.com/Articles/872469/Instrument-Snapshot-How-to-Acquire-and-Render-Scre) 
+I first tried this project, but I clouldn't get it to work. So i decided to make my own tool.
+
+The screen grabbing works by sending the commands to save a Graphic to the memory disk and than read it back into the programm and show it.
+
